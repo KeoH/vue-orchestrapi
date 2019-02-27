@@ -1,35 +1,38 @@
 <template>
-    <div class="Background">
-        <div class="Wrapper">
-            <div class="Login-Header">
-                <h1>Orchestra Pi</h1>
-            </div>
-            <div class="Login-Content">
-                <form action="">
-                    <div class="form-group">
-                        <div class="form-control">
-                            <input type="text" placeholder="Username">
-                        </div>
-                        <div class="form-control">
-                            <input type="password" placeholder="Password">
-                        </div>
+    <div class="Wrapper">
+        <div class="Login-Header">
+            <h1>Orchestra Pi</h1>
+        </div>
+        <div class="Login-Content">
+            <form action="" @submit.prevent="loginSubmit">
+                <div class="form-group">
+                    <div class="form-control">
+                        <input type="text" placeholder="Username">
                     </div>
-                    <button class="btn">Entrar</button>
-                </form>
-            </div>
+                    <div class="form-control">
+                        <input type="password" placeholder="Password">
+                    </div>
+                </div>
+                <button class="btn">Entrar</button>
+            </form>
         </div>
     </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+    methods: {
+        loginSubmit() {
+            console.log('Holita');
+        },
+    },
+});
+</script>
+
+
 <style lang="scss">
-.Background{
-    background-color: gray;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 .Wrapper{
     margin-top: -10vh;
