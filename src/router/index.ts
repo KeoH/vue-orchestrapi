@@ -1,44 +1,51 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue from "vue";
+import Router from "vue-router";
 
-import Home from '@/views/Home.vue';
-import Auth from '@/views/auth/Auth.vue';
+import Home from "@/views/Home.vue";
+import Auth from "@/views/auth/Auth.vue";
 
-import authRoutes from './auth';
+import authRoutes from "./auth";
 
-import authService from '../services/auth';
+import store from "../store";
 
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: "/",
+      name: "home",
       component: Home,
-      // beforeEnter: (to, from, next) => {
-      // },
+      beforeEnter: (to, from, next) => {
+        if (store.getters.isAuthenticated) {
+          next();
+        } else {
+          next("auth/login");
+        }
+      }
     },
     {
-      path: '/about',
-      name: 'about',
+      path: "/about",
+      name: "about",
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue'),
+      component: () =>
+        import(/* webpackChunkName: "about" */ "@/views/About.vue")
     },
     {
-      path: '/profile',
-      name: 'profile',
-      component: () => import(/* webpackChunkName: "profile" */ '@/views/auth/Profile.vue'),
+      path: "/profile",
+      name: "profile",
+      component: () =>
+        import(/* webpackChunkName: "profile" */ "@/views/auth/Profile.vue")
     },
     {
-      path: '/auth',
-      name: 'auth',
+      path: "/auth",
+      name: "auth",
       component: Auth,
-      children: authRoutes,
-    },
-  ],
+      children: authRoutes
+    }
+  ]
 });
