@@ -11,6 +11,14 @@
         </div>
     </div>
 </template>
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+    mounted() {
+        this.$store.commit('logout');
+    }
+})
+</script>
 
 <style lang="scss">
 .Background{

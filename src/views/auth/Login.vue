@@ -61,15 +61,22 @@ export default Vue.extend({
         this.submitStatus = "ERROR";
       } else {
         this.submitStatus = "PENDING";
-        // do your submit logic here
-        this.$store.commit('authenticate', {username: this.username, password: this.password} );
-        let user = this.$store.getters.getUser;
-        if (user != null) {
-          this.submitStatus = "Ok";
-          this.$router.push({name:'home'});
-        } else {
-          this.submitStatus = "FORBIDDEN";
-        }
+        this.$http
+          .post("http://localhost:8000/api/auth/token-auth/", {
+            username: this.username,
+            password: this.password
+          })
+          .then(
+            response => {
+              this.submitStatus = "Ok";
+              this.$store.commit("authenticate", response.body);
+              this.$router.push({ name: "home" });
+            },
+            error => {
+              this.submitStatus = "FORBIDDEN";
+              console.warn(error);
+            }
+          );
       }
     }
   }
