@@ -4,19 +4,6 @@
       <img class='logo' src='@/assets/logo.svg' alt='logo icon'>
       <h3>Orchestra Pi</h3>
     </div>
-    <div>
-        <ul>
-            <li>
-                <router-link to="/">Index</router-link>
-            </li>
-            <li>
-                <router-link to="/profile">Profile</router-link>
-            </li>
-            <li>
-                <router-link to="/about">About</router-link>
-            </li>
-        </ul>
-    </div>
     <div class='HeaderMenuWrapper'>
       <div class='MenuButtonWrapper'></div>
       <div class='HeaderMenu'>
@@ -33,7 +20,11 @@
             <img src='http://i.pravatar.cc/80?img=5' alt=''>
             <ul class='Dropdown'>
                 <li class='Dropdown-Item'>
-                    <router-link to='/auth/logout'>Logout</router-link></li>
+                    <router-link to='/profile'>Profile</router-link>
+                </li>
+                <li class='Dropdown-Item'>
+                    <router-link to='/auth/logout'>Logout</router-link>
+                </li>
             </ul>
         </div>
       </div>
@@ -109,7 +100,7 @@ export default class HeaderMenu extends Vue {}
     border-radius: 5px;
     display: none;
     right: 0;
-    bottom: -35px;
+    top: 50px;
     list-style: none;
     padding: 0;
     margin: 0;
