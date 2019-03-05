@@ -1,9 +1,6 @@
 <template>
-  <div class="ViewBase">
-    <HeaderMenu />
-    <div class="content">
-      <h3>Dashboard</h3>
-    </div>
+  <div class="content">
+    <h3>Dashboard</h3>
   </div>
 </template>
 

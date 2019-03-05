@@ -1,9 +1,6 @@
 <template>
-  <div class="ViewBase">
-    <HeaderMenu />
-    <div class="content">
-      <h3>This is an profile page</h3>
-    </div>
+  <div class="content">
+    <h3>This is an profile page</h3>
   </div>
 </template>
 
