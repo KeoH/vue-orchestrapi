@@ -8,10 +8,16 @@ import store from './store';
 import './registerServiceWorker';
 
 import Vuelidate from 'vuelidate';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import locale from 'element-ui/lib/locale/lang/es'
+
 
 Vue.config.productionTip = false;
 
 Vue.use(Vuelidate);
+
+Vue.use(ElementUI, { locale });
 
 new Vue({
   router,

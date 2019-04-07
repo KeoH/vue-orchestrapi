@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div>
     <h3>Dashboard</h3>
   </div>
 </template>
@@ -15,9 +15,5 @@ export default class Home extends Vue {}
 </script>
 
 <style lang="scss">
-.ViewBase{
-  display: flex;
-  flex-direction: column;
-}
 
 </style>

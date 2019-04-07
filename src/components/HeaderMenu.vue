@@ -1,122 +1,46 @@
 <template>
-  <header class='Header'>
-    <div class='HeaderLogoWrapper'>
-      <img class='logo' src='@/assets/logo.svg' alt='logo icon'>
-      <h3>Orchestra Pi</h3>
-    </div>
-    <div class='HeaderMenuWrapper'>
-      <div class='MenuButtonWrapper'></div>
-      <div class='HeaderMenu'>
-        <div class='HeaderMenu-Icon'>
-          <i class='fas fa-search'></i>
-        </div>
-        <div class='HeaderMenu-Icon'>
-          <i class='far fa-bell'></i>
-        </div>
-        <div class='HeaderMenu-Icon'>
-          <i class='far fa-envelope'></i>
-        </div>
-        <div class='HeaderMenu-Icon AvatarWrapper DropdownMenu'>
-            <img src='http://i.pravatar.cc/80?img=5' alt=''>
-            <ul class='Dropdown'>
-                <li class='Dropdown-Item'>
-                    <router-link to='/profile'>Profile</router-link>
-                </li>
-                <li class='Dropdown-Item'>
-                    <router-link to='/auth/logout'>Logout</router-link>
-                </li>
-            </ul>
-        </div>
-      </div>
-    </div>
+  <header>
+    <el-menu
+      mode="horizontal"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+    >
+      <el-menu-item index="1">
+        <router-link to="/">Orchestra Pi</router-link>
+      </el-menu-item>
+      <el-menu-item index="2">Proyectos</el-menu-item>
+      <el-menu-item index="3">Aplicaciones</el-menu-item>
+      <el-menu-item index="4">Contenedores</el-menu-item>
+      <el-menu-item index="5">Imágenes</el-menu-item>
+      <el-menu-item index="6">Networks</el-menu-item>
+      <el-menu-item index="7">
+        <router-link to="/about">About</router-link>
+      </el-menu-item>
+      <el-submenu index="8">
+        <template slot="title">Opciones</template>
+        <router-link to="/profile">
+          <el-menu-item index="8-1">Profile</el-menu-item>
+        </router-link>
+        <router-link to="/auth/logout">
+          <el-menu-item index="8-2">Logout</el-menu-item>
+        </router-link>
+      </el-submenu>
+    </el-menu>
   </header>
 </template>
 
 <script lang='ts'>
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
-export default class HeaderMenu extends Vue {}
+export default class HeaderMenu extends Vue {
+  data() {
+    return {
+      activeItem: 0
+    };
+  }
+}
 </script>
-
-<style lang='scss'>
-.Header{
-    display: flex;
-    flex-direction: column;
-    background-color: lightgray;
-}
-.HeaderLogoWrapper{
-        text-align: center;
-        justify-content: center;
-        background-color: gray;
-
-    h3{
-        display: inline-block;
-    }
-
-}
-.logo{
-    width: 40px;
-    margin-bottom: -15px;
-}
-
-.HeaderMenuWrapper{
-    display: flex;
-    justify-content: space-between;
-}
-.MenuButtonWrapper{
-    flex-basis: 60px;
-}
-.HeaderMenu{
-    flex:1;
-    text-align: right;
-    padding: .2em .8em .2em 1em;
-}
-.HeaderMenu-Icon{
-    display: inline-block;
-    font-size: 1.3em;
-    padding: .3em;
-    cursor: pointer;
-    margin-right: .25em;
-}
-.AvatarWrapper{
-    img{
-        width: 40px;
-        border-radius: 50%;
-    }
-    margin-left: .5em;
-    font-size: 1em;
-}
-.DropdownMenu{
-    position:relative;
-        &:hover .Dropdown{
-        display: block;
-    }
-}
-.Dropdown{
-    position: absolute;
-    background:white;
-    border: 1px solid gray;
-    border-radius: 5px;
-    display: none;
-    right: 0;
-    top: 50px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-}
-.Dropdown-Item{
-    padding: .5em 1em;
-    a{
-        text-decoration: none;
-        color: black;
-    }
-    &:hover{
-        background-color: gray;
-        color: white;
-    }
-}
-
-
+<style lang="scss">
 </style>

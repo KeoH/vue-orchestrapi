@@ -15,9 +15,5 @@ export default class About extends Vue {}
 </script>
 
 <style lang="scss">
-.ViewBase{
-  display: flex;
-  flex-direction: column;
-}
 
 </style>

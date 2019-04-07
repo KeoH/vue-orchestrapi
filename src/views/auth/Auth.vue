@@ -7,12 +7,5 @@
 </template>
 
 <style lang="scss">
-.Background{
-    background-color: gray;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
 </style>
